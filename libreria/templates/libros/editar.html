@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block titulo %} Editar Libro {% endblock %}
+
+{% block content %}
+<div class="card mt-5 w-75 m-auto">
+    <div class="card-header  d-flex bg-dark m-auto w-100">
+         <h4 class="text-info m-auto p-3"> Editar datos del  Libro</h4>
+    </div>
+    <div class="card-body">
+       <h4 class="card-title">Datos del libro</h4>
+          {% include 'libros/form.html' %}
+          
+      
+        <div class="card-footer  bg-dark d-flex justify-content-center m-1 ">
+             <button type="submit" class="btn btn-outline-info w-25 m-1 ">Editar</button>
+             <a  type="button"   href="{% url 'Libros' %}" 
+                      class="btn btn-outline-warning w-25 m-1 ">Volver</a>
+        </div>  
+
+    </div>
+</div>
+
+
+{% endblock %}

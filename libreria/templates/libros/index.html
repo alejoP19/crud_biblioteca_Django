@@ -1,0 +1,70 @@
+{% extends "../base.html" %}
+{% load static %}
+
+
+{% block titulo %} Index {% endblock %}
+
+{% block content %}
+<div class="card" style="display: flex; flex-direction: column;  margin-bottom:20%; margin-top: 5%;
+                          width: 68%; justify-self: center;">
+
+
+
+<div class="card-header text-white bg-dark mb-3">
+   
+  <h4 class=" d-flex justify-content-center m-auto"> Listar Libros</h4>
+
+</div>
+<table class="mb-5">
+ 
+  <thead>
+    <tr class="thead-light text-black text-center border-bottom border-success">
+      <th>Id</th>
+      <th >Título</th>
+      <th >Imagen</th>
+      <th >descripción</th>
+      <th >Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for dato in datos_libro %} 
+    <tr  class="mt-2 bg-light ">
+     
+        <td class="bg-light text-black text-center p-3">{{ dato.id }} </td>
+        <td class="text-center p-3 " > <h5> {{ dato.titulo }}</h5> </td>
+        <td   class="p-3 " scope="row"> 
+          <img src="{{dato.imagen.url}}"  height="100" width="100" healt="foto del jugador">
+         </td>
+        <td class="p-3" scope="row">{{ dato.descripcion }} </td>
+        <td class="d-flex flex-row mt-5" >  
+          <a  href="{% url 'EditarLibro' %}" class="btn btn-primary m-2" role="button">Editar</a> 
+          <a href="{% url 'EliminarLibro' %}" class="btn btn-danger m-2" role="button">Eliminar</a>
+        </td> 
+      </tr>
+      {% if empty %} 
+      <tr class="table-danger" text-center">
+          <td colspan="6">No hay Libros Creados</td>
+      </tr>
+    
+       {% endif %} 
+
+    
+    
+       {% endfor %}
+  </tbody>
+  
+</table>
+
+<a href="{% url 'CrearLibro' %}" type="button" class="btn btn-success  m-auto mb-4">Crear Libro</a>
+
+
+</div>
+ 
+
+  
+
+
+
+
+
+{% endblock %}

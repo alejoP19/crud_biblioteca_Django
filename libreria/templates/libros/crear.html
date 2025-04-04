@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block titulo %} Crear Libro {% endblock %}
+
+{% block content %}
+<div class="card mt-5" style="width: 50%; margin: 0 auto; ">
+    <div class="card-header ">
+        Crear Un Libro
+    </div>
+    <div class="card-body">
+       <h4 class="card-title">Datos del libro</h4>
+          {% include 'libros/form.html' %}
+            <button type="submit" class="btn btn-success">Crear</button>
+        
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+{% endblock %}
