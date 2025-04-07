@@ -1,15 +1,15 @@
 
+
 from django import forms
-
-from .models import Libro
-
+from  .models import Libro
 
 
 class LibroForm(forms.ModelForm):
-        class meta:
-          model = Libro
-          fields = ['id','titulo','imagen','descripcion']
+        class Meta:
+          model=Libro
+          fields ='__all__'
            
-        #   fields ='__all__'
+          # fields = ['id','titulo','imagen','descripcion']
+     
        
     

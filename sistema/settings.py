@@ -150,3 +150,7 @@ MEDIA_URL = '/media/' #para importar imagenes
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+import sys
+
+
+

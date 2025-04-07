@@ -4,9 +4,44 @@
     {% csrf_token %}
     {% for campo in formulario %}
 <div class="mb-3">
-    <label for="titulo" class="form-label">Nombre</label>
-    <input type="text" class="form-control" name="titulo" placeholder="Título del libro" required>
+    <label for="titulo"
+     class="form-label">{{campo.label}}</label>
+      <br>
 
+<!-- ¡¡ Importante !! Esta fracción de codigo es para traer las imagenes del registro
+que se desea editar (si el registro tiene imagenes);
+1. Se llama l variable global de la carpeta que guardará los archivos del proyecto. 
+2.  se pone la carpeta donde se van a guardar las imagenes. 
+3. se llama el valor de los campos de la tabla en este caso trera el de las imagenes-->
+     {% if campo.field.widget.input_type == 'file' and campo.value %}
+     <img src="{{MEDIA_URL}}/media/{{campo.value}}" width="100"  alt="">
+     {% endif %}
+     <input type="{{ campo.field.widget.input_type}}"
+     class="form-control" 
+     name="{{campo.name}}" 
+     placeholder="{{campo.label}}" required
+     value="{{ campo.value | default:'' }}"> </input>
+
+     <!-- se pone --campo.value | default:'' -- para que si no hay valor lo muestre vacio a la hora de editar -->
+    </div>
+    <div class="col-12 help-text">{{ campo.errors }}</div>
+    {% endfor %}
+    <div class="card-footer  bg-dark d-flex justify-content-center m-1 ">
+        
+    {% if campo.id == campo.id.crear %}
+    <button type="{{campo.field.widget.button_type}}submit"
+    class="btn btn-outline-success w-35 m-1"
+    value="Crear Libro"
+    id="{{ campo.id.crear }}">crear Libro</button>
+    <a  type="button"   href="{% url 'Libros' %}"
+    class="btn btn-outline-warning w-35 m-1 ps-4 pe-4 ">Volver</a>
+    {% endif %}
+ 
+        
+       
+   
+
+
+   
 </div>
-{% endfor %}
-</form>
+</form> 

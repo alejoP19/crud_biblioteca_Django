@@ -5,16 +5,24 @@
 {% block titulo %} Crear Libro {% endblock %}
 
 {% block content %}
-<div class="card mt-5" style="width: 50%; margin: 0 auto; ">
-    <div class="card-header ">
-        Crear Un Libro
+<div class="card " style="width: 50%; margin: 0 auto; margin-top: 4%; margin-bottom: 10%; ">
+    <div class="card-header  d-flex bg-dark m-auto w-100">
+        <h4 class="text-info m-auto p-3"> Crear un Libro</h4>
     </div>
     <div class="card-body">
-       <h4 class="card-title">Datos del libro</h4>
+        <h4 class="card-title">Datos del libro</h4>
+
           {% include 'libros/form.html' %}
-            <button type="submit" class="btn btn-success">Crear</button>
+  
+          <!-- <div class="card-footer  bg-dark d-flex justify-content-center m-1 ">
+              <input type="submit" class="btn btn-outline-success w-25 m-1 ">Crear</input>
+              <a  type="button"   href="{% url 'Libros' %}" 
+              class="btn btn-outline-warning w-25 m-1 ">Volver</a>
+          
+            </div>
+        -->
         
-    </div>
+        </div>
     <div class="card-footer text-muted">
 
     </div>
